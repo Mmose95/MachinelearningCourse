@@ -3,19 +3,18 @@
 # Members : Matias Mose,  Henrik Paaske Lind, Amalie Koch Andersen, Phillip Kaasgaard Sperling
 # Date : 17-03-2025
 # Lecture: Lecture 3: Parametric methods (ML, MAP & Bayesian learning) and nonparametric methods
-# Dependencies: Toolbox, library, etc. needed to run, e.g., Libsvm, netlab, LDA tool.
-# Python version:
-# Functionality: Short Description. Example: This script trains a MLP for classifying
-# handwritten digits. It also test the performance on a given data set for various
-# settings.
+# Dependencies: first section is an import section.
+# Python version: 3.12
+# Functionality: This code trains the training data and tests on three different scenarios: 1) some test data, 2) some different test with uniform a priori data and 3) same test data as 2) but with different a priori.
 # ###################################
 
 from sklearn.metrics import confusion_matrix
 import numpy as np
-import pandas as pd
+from sklearn.metrics import ConfusionMatrixDisplay
 from scipy.io import loadmat
 from scipy.stats import multivariate_normal as norm
 import matplotlib.pyplot as plt
+from sklearn.metrics import classification_report
 
 #Load dataset
 file = "D:\PHD\Courses\Machine Learning\Data\dataset1_G_noisy.mat"
@@ -30,11 +29,6 @@ trn_y = data["trn_y"] #input 2
 #dataset2 - træning
 trn_x_class = data["trn_x_class"] #output (class) 1
 trn_y_class = data["trn_y_class"] #output (class) 2
-
-totalLen = len(trn_x_class)+len(trn_y_class)
-
-#prior_trn_x = (len(trn_x_class)/totalLen)*100
-#prior_trn_y = (len(trn_y_class)/totalLen)*100
 
 #Testsets
 tst_xy = data["tst_xy"] #input - træning
@@ -74,15 +68,12 @@ argmax_pdf_all = np.argmax(pdf_all, axis = 1)
 
 cfm_ex1 = confusion_matrix(tst_xy_class, argmax_pdf_all)
 
-from sklearn.metrics import ConfusionMatrixDisplay
-
 # Create and plot confusion matrix
 disp = ConfusionMatrixDisplay(confusion_matrix=cfm_ex1)
 disp.plot(cmap='Blues')
 plt.title("Confusion Matrix")
 plt.show()
 
-from sklearn.metrics import classification_report
 clf_report_ex1 = classification_report(tst_xy_class, argmax_pdf_all)
 print(clf_report_ex1)
 
@@ -101,18 +92,14 @@ argmax_pdf_all = np.argmax(pdf_all, axis = 1)
 
 cfm_ex2 = confusion_matrix(tst_xy_126_class, argmax_pdf_all)
 
-from sklearn.metrics import ConfusionMatrixDisplay
-
 # Create and plot confusion matrix
 disp = ConfusionMatrixDisplay(confusion_matrix=cfm_ex2)
 disp.plot(cmap='Blues')
 plt.title("Confusion Matrix")
 plt.show()
 
-from sklearn.metrics import classification_report
 clf_report_ex2 = classification_report(tst_xy_126_class, argmax_pdf_all)
 print(clf_report_ex2)
-
 
 ''' EX 3 '''
 #(c) classify instances in tst_xy_126 by assuming a prior probability of 0.9 for Class x and 0.1 for Class y, and use the corresponding label file tst_xy_126_class to calculate the accuracy; compare the results with those of (b).
@@ -132,14 +119,11 @@ argmax_pdf_all = np.argmax(pdf_all, axis = 1)
 
 cfm_ex3 = confusion_matrix(tst_xy_126_class, argmax_pdf_all)
 
-from sklearn.metrics import ConfusionMatrixDisplay
-
 # Create and plot confusion matrix
 disp = ConfusionMatrixDisplay(confusion_matrix=cfm_ex3)
 disp.plot(cmap='Blues')
 plt.title("Confusion Matrix")
 plt.show()
 
-from sklearn.metrics import classification_report
 clf_report_ex3 = classification_report(tst_xy_126_class, argmax_pdf_all)
 print(clf_report_ex3)
