@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report
 
 #Load dataset
-file = "D:\PHD\Courses\Machine Learning\Data\dataset1_G_noisy.mat"
+file = "/Data/Data_day1/dataset1_G_noisy.mat"
 data = loadmat(file)
 
  #Trainsets
