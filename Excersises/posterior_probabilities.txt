@@ -1,0 +1,54 @@
+
+Posterior Probabilities from Individual Gaussian Models:
+
+Test Sample 1 (True Label: 0):
+  P(Digit 5 | x_test) = 0.4967
+  P(Digit 6 | x_test) = 0.0000
+  P(Digit 8 | x_test) = 0.5033
+
+Test Sample 2 (True Label: 0):
+  P(Digit 5 | x_test) = 0.0943
+  P(Digit 6 | x_test) = 0.0024
+  P(Digit 8 | x_test) = 0.9033
+
+Test Sample 3 (True Label: 0):
+  P(Digit 5 | x_test) = 0.0319
+  P(Digit 6 | x_test) = 0.0000
+  P(Digit 8 | x_test) = 0.9681
+
+Test Sample 4 (True Label: 0):
+  P(Digit 5 | x_test) = 0.4762
+  P(Digit 6 | x_test) = 0.0000
+  P(Digit 8 | x_test) = 0.5237
+
+Test Sample 5 (True Label: 0):
+  P(Digit 5 | x_test) = 0.9006
+  P(Digit 6 | x_test) = 0.0000
+  P(Digit 8 | x_test) = 0.0994
+
+Posterior Probabilities from Single GMM:
+
+Test Sample 1 (True Label: 0):
+  P(Component 0 | x_test) = 0.0000
+  P(Component 1 | x_test) = 0.4389
+  P(Component 2 | x_test) = 0.5610
+
+Test Sample 2 (True Label: 0):
+  P(Component 0 | x_test) = 0.0020
+  P(Component 1 | x_test) = 0.9018
+  P(Component 2 | x_test) = 0.0963
+
+Test Sample 3 (True Label: 0):
+  P(Component 0 | x_test) = 0.0000
+  P(Component 1 | x_test) = 0.9713
+  P(Component 2 | x_test) = 0.0286
+
+Test Sample 4 (True Label: 0):
+  P(Component 0 | x_test) = 0.0000
+  P(Component 1 | x_test) = 0.4657
+  P(Component 2 | x_test) = 0.5343
+
+Test Sample 5 (True Label: 0):
+  P(Component 0 | x_test) = 0.0000
+  P(Component 1 | x_test) = 0.0674
+  P(Component 2 | x_test) = 0.9326
